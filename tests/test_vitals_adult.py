@@ -14,7 +14,7 @@ def test_all_vitals_ok_adult():
         BloodPressureCheck(systolic=115, diastolic=75, age=30),
     ]
     results = [c.validate() for c in checks]
-    assert all(r is None for r in results)
+    assert all(re is None for re in results)
 
 
 def test_temperature_out_of_range_adult():
