@@ -8,8 +8,8 @@ class TemperatureCheck(VitalCheck):
         return self.RANGES["child"] if self.age < 12 else self.RANGES["adult"]
 
     def is_ok(self) -> bool:
-        low, high = self._get_range()
-        return low <= self.value <= high
+        low_temp, high_temp = self._get_range()
+        return low_temp <= self.value <= high_temp
 
     def error_message(self) -> str:
         return f"Temperature critical! => {self.value}°F"
@@ -22,8 +22,8 @@ class PulseRateCheck(VitalCheck):
         return self.RANGES["child"] if self.age < 12 else self.RANGES["adult"]
 
     def is_ok(self) -> bool:
-        low, high = self._get_range()
-        return low <= self.value <= high
+        low_pulse, high_pulse = self._get_range()
+        return low_pulse <= self.value <= high_pulse
 
     def error_message(self) -> str:
         return f"Pulse Rate out of range! => {self.value}bpm"
@@ -37,8 +37,8 @@ class Spo2Check(VitalCheck):
         return self.RANGES["default"]
 
     def is_ok(self) -> bool:
-        low, high = self._get_range()
-        return low <= self.value <= high
+        low_oxygen, high_oxygen = self._get_range()
+        return low_oxygen <= self.value <= high_oxygen
 
     def error_message(self) -> str:
         return f"Oxygen Saturation out of range! => {self.value}%"
